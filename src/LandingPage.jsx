@@ -69,6 +69,8 @@ function LandingPage() {
   });
   const [message, setMessage] = useState("");
   const [showPopup, setShowPopup] = useState(false);
+  const [isAppLoading, setIsAppLoading] = useState(false);
+  
   const toggleFAQ = (index) => {
     setOpenIndex(openIndex === index ? null : index);
   };
@@ -82,10 +84,12 @@ function LandingPage() {
 
   const handleSubmit = async (e) => {
     setMessage(""); // Reset message
+    setIsAppLoading(true)
 
     try {
       const res = await axios.post("https://diabetesbackend.onrender.com/api/consultations", formData);
       setMessage("Appointment booked successfully!");
+      setIsAppLoading(false)
       setShowPopup(true)
       setFormData({ name: "", contact: "", place: "", duration: "" }); // Clear form
     } catch (error) {
@@ -104,6 +108,17 @@ function LandingPage() {
 
   return (
     <div className="font-sans bg-[#08081b] text-gray-100 min-h-screen">
+
+{isAppLoading && (
+  <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center">
+    <div className="bg-white rounded-2xl shadow-xl p-6 max-w-xs w-full flex flex-col items-center justify-center">
+      <div className="loader mb-4 w-12 h-12 border-4 border-yellow-400 border-t-transparent rounded-full animate-spin" />
+      <p className="text-gray-700 font-medium text-center">
+        Booking your appointment...
+      </p>
+    </div>
+  </div>
+)}
 
       {showPopup && (
       <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center">
