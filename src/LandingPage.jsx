@@ -213,12 +213,11 @@ function LandingPage() {
   >
     <div className="flex flex-col md:flex-row items-center md:justify-between">
       <div className="text-center md:text-left md:w-2/3">
-        <h2 className="text-2xl md:text-5xl md:ml-24 font-bold">By Dr. Sai Vigneshvar</h2>
+        <h2 className="text-2xl md:text-5xl md:ml-24 font-bold">By Dr.CN Sai Vigneshvar</h2>
         <p className="text-gray-400 md:ml-24 text-lg md:text-2xl font-semibold mt-2">
           Consultant - Internal medicine <p> and advanced diabetology</p>
         </p>
       </div>
-      <div className='bg-blue-800 md:block text-blue-800 p-10 px-12 right-34 translate-y-45 md:translate-y-2  md:p-24 md:px-28 absolute md:right-[455px] z-10 rounded-full'>-</div>
       <img src={option8} alt="Doctor" style={{ filter: 'drop-shadow(0 10px 10px rgba(0, 0, 0, 0.3))' }} className="w-48 z-20 h-48 md:w-96 md:-mt-44 -mb-6 md:h-96 object-cover object-top " />
     </div>
   </motion.div>
