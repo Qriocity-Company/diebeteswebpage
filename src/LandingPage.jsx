@@ -92,6 +92,17 @@ function LandingPage() {
       setIsAppLoading(false)
       setShowPopup(true)
       setFormData({ name: "", contact: "", place: "", duration: "" }); // Clear form
+
+      if (window.fbq) {
+        window.fbq("track", "Lead", {
+          content_name: "Diabetes Appointment",
+          content_category: "Appointment",
+          value: 5.0,
+          currency: "USD",
+        });
+      }
+
+
     } catch (error) {
       console.error("Error submitting form", error);
       setMessage("Failed to book appointment. ❌");
