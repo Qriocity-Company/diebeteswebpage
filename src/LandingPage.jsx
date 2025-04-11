@@ -83,6 +83,7 @@ function LandingPage() {
   };
 
   const handleSubmit = async (e) => {
+    e.preventDefault();
     setMessage(""); // Reset message
     setIsAppLoading(true)
 
@@ -164,18 +165,22 @@ function LandingPage() {
     <p className="text-gray-300 text-lg md:text-3xl my-8 ">
       Get Started with a Personal Consultation
     </p>
+    <form onSubmit={handleSubmit}>
     <div className="mt-6 md:mx-24 grid grid-cols-1 md:grid-cols-2 gap-4 gap-x-12">
+   
       <input 
+      required
       type="text"
       name="name"
       placeholder="Enter Name"
       value={formData.name}
       onChange={handleChange}
-      required 
+     
       className="p-3 rounded-md bg-gray-700/40 text-white border border-sky-500/90 w-full" />
 
       
-      <input type="text"
+      <input required
+      type="text"
             name="contact"
             placeholder="Enter Contact Number"
             value={formData.contact}
@@ -183,6 +188,7 @@ function LandingPage() {
 
 
       <input 
+      required
             type="text"
             name="place"
             placeholder="Enter Place"
@@ -192,6 +198,7 @@ function LandingPage() {
 
 
 <select
+  required
   name="duration"
   value={formData.duration}
   onChange={handleChange}
@@ -207,9 +214,10 @@ function LandingPage() {
 
 
     </div>
-    <button onClick={()=> handleSubmit()} className="mt-6 bg-yellow-500 text-black px-6 py-3 rounded-md font-bold hover:bg-yellow-600">
+    <button type='submit' className="mt-6 bg-yellow-500 text-black px-6 py-3 rounded-md font-bold hover:bg-yellow-600">
       Book an Appointment
     </button>
+    </form>
     {/* {message && <p className="mt-4 text-lg font-semibold text-gray-300">{message}</p>} */}
   </motion.div>
 </section>
