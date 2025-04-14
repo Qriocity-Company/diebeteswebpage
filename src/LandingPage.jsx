@@ -88,10 +88,10 @@ function LandingPage() {
     
 
     // Contact number length validation (minimum 10 digits)
-  if (!/^\d{10,}$/.test(formData.contact)) {
-    setMessage("Contact number must be at least 10 digits. ❌");
-    return;
-  }
+    if (!/^\d{10}$/.test(formData.contact)) {
+      setMessage("Contact number must be exactly 10 digits. ❌");
+      return;
+    }
 
   setIsAppLoading(true)
 
