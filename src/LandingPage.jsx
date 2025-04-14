@@ -85,11 +85,19 @@ function LandingPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setMessage(""); // Reset message
-    setIsAppLoading(true)
+    
+
+    // Contact number length validation (minimum 10 digits)
+  if (!/^\d{10,}$/.test(formData.contact)) {
+    setMessage("Contact number must be at least 10 digits. ❌");
+    return;
+  }
+
+  setIsAppLoading(true)
 
     try {
       const res = await axios.post("https://diabetesbackend.onrender.com/api/consultations", formData);
-      setMessage("Appointment booked successfully!");
+      
       setIsAppLoading(false)
       setShowPopup(true)
       setFormData({ name: "", contact: "", place: "", duration: "" }); // Clear form
@@ -106,7 +114,7 @@ function LandingPage() {
 
     } catch (error) {
       console.error("Error submitting form", error);
-      setMessage("Failed to book appointment. ❌");
+      
       
     }
   };
@@ -180,7 +188,7 @@ function LandingPage() {
 
       
       <input required
-      type="text"
+      type="number"
             name="contact"
             placeholder="Enter Contact Number"
             value={formData.contact}
@@ -218,7 +226,7 @@ function LandingPage() {
       Book an Appointment
     </button>
     </form>
-    {/* {message && <p className="mt-4 text-lg font-semibold text-gray-300">{message}</p>} */}
+    {message && <p className="mt-4 text-lg font-semibold text-gray-300">{message}</p>}
   </motion.div>
 </section>
       
