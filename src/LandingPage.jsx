@@ -66,6 +66,7 @@ function LandingPage() {
     contact: "",
     place: "",
     duration: "",
+    email : ""
   });
   const [message, setMessage] = useState("");
   const [showPopup, setShowPopup] = useState(false);
@@ -100,7 +101,7 @@ function LandingPage() {
       
       setIsAppLoading(false)
       setShowPopup(true)
-      setFormData({ name: "", contact: "", place: "", duration: "" }); // Clear form
+      setFormData({ name: "", contact: "", place: "", duration: "", email: "" }); // Clear form
 
       if (window.fbq) {
         window.fbq("track", "Lead", {
@@ -176,6 +177,16 @@ function LandingPage() {
     <form onSubmit={handleSubmit}>
     <div className="mt-6 md:mx-24 grid grid-cols-1 md:grid-cols-2 gap-4 gap-x-12">
    
+    <input 
+      required
+      type="email"
+      name="Email"
+      placeholder="Enter Email"
+      value={formData.email}
+      onChange={handleChange}
+     
+      className="p-3 rounded-md bg-gray-700/40 text-white border border-sky-500/90 w-full" />
+
       <input 
       required
       type="text"
