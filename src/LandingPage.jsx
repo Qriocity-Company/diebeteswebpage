@@ -181,7 +181,7 @@ function LandingPage() {
     <input 
       required
       type="email"
-      name="Email"
+      name="email"
       placeholder="Enter Email"
       value={formData.email}
       onChange={handleChange}
