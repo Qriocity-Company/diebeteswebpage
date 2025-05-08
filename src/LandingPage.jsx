@@ -98,7 +98,7 @@ function LandingPage() {
   setIsAppLoading(true)
 
     try {
-      const res = await axios.post("https://diabetesbackend.onrender.com/api/consultations", formData);
+      const res = await axios.post("https://diabetesbackend-goy1.onrender.com/api/consultations", formData);
       
       setIsAppLoading(false)
       setShowPopup(true)
