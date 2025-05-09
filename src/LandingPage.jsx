@@ -178,22 +178,23 @@ function LandingPage() {
     <form onSubmit={handleSubmit}>
     <div className="mt-6 md:mx-24 grid grid-cols-1 md:grid-cols-2 gap-4 gap-x-12">
    
-    <input 
-      required
-      type="email"
-      name="email"
-      placeholder="Enter Email"
-      value={formData.email}
-      onChange={handleChange}
-     
-      className="p-3 rounded-md bg-gray-700/40 text-white border border-sky-500/90 w-full" />
-
+    
       <input 
       required
       type="text"
       name="name"
       placeholder="Enter Name"
       value={formData.name}
+      onChange={handleChange}
+     
+      className="p-3 rounded-md bg-gray-700/40 text-white border border-sky-500/90 w-full" />
+
+<input 
+      required
+      type="email"
+      name="email"
+      placeholder="Enter Email"
+      value={formData.email}
       onChange={handleChange}
      
       className="p-3 rounded-md bg-gray-700/40 text-white border border-sky-500/90 w-full" />
@@ -864,7 +865,7 @@ const TestimonialSlider = () => {
                 </p>
                 <div className="mt-6">
                   <h4 className="text-yellow-400 text-xl font-semibold">{testimonial.name}</h4>
-                  <p className="text-gray-300">{testimonial.time}</p>
+                  
                 </div>
               </div>
             </motion.div>
